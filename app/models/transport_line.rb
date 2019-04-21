@@ -1,0 +1,2 @@
+class TransportLine < ApplicationRecord
+end
