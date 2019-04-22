@@ -12,12 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2019_04_21_101102) do
 
-  create_table "lines", force: :cascade do |t|
-    t.string "line_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "transport_delays", force: :cascade do |t|
     t.integer "transport_line_id"
     t.integer "delay"
