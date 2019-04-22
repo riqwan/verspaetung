@@ -30,15 +30,15 @@ RSpec.describe Api::V1::TransportTimesController, type: :controller do
         get :show, params: { x: x, y: y, time: time_1.to_s }
 
         json_response = JSON.parse(response.body)
-        expect(json_response.keys).to match_array(['id', 'time'])
+        expect(json_response.keys).to match_array(['id', 'time', 'transport_line', 'transport_stop'])
       end
 
-      context 'when next transport time is present' do
-        it 'returns transport time object for next available transport' do
+      context 'when transport time is present' do
+        it 'returns transport time object for given parameters' do
           get :show, params: { x: x, y: y, time: time_1.to_s }
 
           json_response = JSON.parse(response.body)
-          expect(json_response['time'].to_datetime).to eq transport_time_1.time
+          expect(json_response['id']).to eq transport_time_1.id
         end
       end
 
